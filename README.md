@@ -10,3 +10,10 @@ flux get kustomization -A
 flux get source git -A
 
 flux get hr -A
+
+.
+├── \_config.yml
+├── apps
+│ ├── begin-with-the-crazy-ideas.textile
+│ └── on-simplicity-in-technology.markdown
+├── \_includes
