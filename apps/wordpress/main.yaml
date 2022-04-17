@@ -19,7 +19,7 @@ metadata:
   name: wp-pv-claim
   labels:
     app: wordpress
-  namespace: default
+  namespace: wordpress
 spec:
   accessModes:
     - ReadWriteOnce
