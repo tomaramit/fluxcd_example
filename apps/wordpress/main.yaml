@@ -4,7 +4,7 @@ metadata:
   name: wordpress
   labels:
     app: wordpress
-  namespace: default
+  namespace: wordpress
 spec:
   ports:
     - port: 80
@@ -33,7 +33,7 @@ metadata:
   name: wordpress
   labels:
     app: wordpress
-  namespace: default
+  namespace: wordpress
 spec:
   selector:
     matchLabels:
