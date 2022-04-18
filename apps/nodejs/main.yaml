@@ -1,70 +1,40 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: wordpress
-  labels:
-    app: wordpress
-  namespace: default
-spec:
-  ports:
-    - port: 80
-  selector:
-    app: wordpress
-    tier: frontend
-  type: LoadBalancer
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: wp-pv-claim
-  labels:
-    app: wordpress
-  namespace: default
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
   labels:
-    app: wordpress
-  namespace: default
+    app: nodejs
+  name: nodejs
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: wordpress
-      tier: frontend
-  strategy:
-    type: Recreate
+      app: nodejs
+  strategy: {}
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: frontend
+        app: nodejs
     spec:
       containers:
-        - image: wordpress:4.8-apache
-          name: wordpress
-          env:
-            - name: WORDPRESS_DB_HOST
-              value: wordpress-mysql
-            - name: WORDPRESS_DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-pass
-                  key: password
-          ports:
-            - containerPort: 80
-              name: wordpress
-          volumeMounts:
-            - name: wordpress-persistent-storage
-              mountPath: /var/www/html
-      volumes:
-        - name: wordpress-persistent-storage
-          persistentVolumeClaim:
-            claimName: wp-pv-claim
+        - image: zarakmughal/nodejs-starter:1.0
+          name: nodejs-starter
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nodejs
+  name: nodejs
+  namespace: default
+spec:
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: nodejs
+  type: NodePort
+status:
+  loadBalancer: {}
