@@ -9,3 +9,6 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./apps/nodejs
+  prune: true
+  wait: true
+  timeout: 5m0s
