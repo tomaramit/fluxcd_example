@@ -7,6 +7,8 @@ flux bootstrap git \
 
 git clone ssh://cloud_user_p_c5a5eba2@linuxacademygclabs.com@source.developers.google.com:2022/p/playground-s-11-990e5240/r/testrepo
 
+git clone ssh://cloud_user_p_c5a5eba2@linuxacademygclabs.com@source.developers.google.com:2022/p/playground-s-11-990e5240/r/testrepo
+
 flux get kustomization -A
 
 flux get source git -A
