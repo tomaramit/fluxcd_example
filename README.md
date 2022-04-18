@@ -1,9 +1,11 @@
 flux bootstrap git \
- --url=ssh://cloud_user_p_7fb194e5@linuxacademygclabs.com@source.developers.google.com:2022/p/playground-s-11-d1c82b83/r/playground1c82b83 \
+ --url=ssh://cloud_user_p_c5a5eba2@linuxacademygclabs.com@source.developers.google.com:2022/p/playground-s-11-990e5240/r/testrepo \
  --private-key-file=/Users/felipe/.ssh/id_rsa \
  --silent \
  --path=./clusters/wordpress_cluster \
  --branch="master"
+
+git clone ssh://cloud_user_p_c5a5eba2@linuxacademygclabs.com@source.developers.google.com:2022/p/playground-s-11-990e5240/r/testrepo
 
 flux get kustomization -A
 
